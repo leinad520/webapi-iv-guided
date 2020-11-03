@@ -11,7 +11,8 @@ server.use(express.json());
 server.get('/', (req, res) => {
   Shoutouts.find()
   .then(shoutouts => {
-    res.status(200).json('hi');
+    const messageOfTheDay = process.env.MOTD || "catch 'em all";
+    res.status(200).json(motd: messageOfTheDay, 'hi');
   })
   .catch (error => {
     console.error('\nERROR', error);
